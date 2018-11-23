@@ -52,11 +52,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 try {
-
-                    System.out.println(s.length());
-                    MainActivity.this.billAmount = Double.parseDouble(s.toString()) ;
-//                    MainActivity.this.amountTextView.setText(MainActivity.currencyFormat.format(MainActivity.this.billAmount));
-                    MainActivity.this.amountTextView.setText(MainActivity.this.addWhiteSpaces(s.length()));
+                    MainActivity.this.billAmount = Double.parseDouble(s.toString()) / 100;
+                    MainActivity.this.amountTextView.setText(MainActivity.currencyFormat.format(MainActivity.this.billAmount));
+//                    MainActivity.this.amountTextView.setText(MainActivity.this.addWhiteSpaces(s.length()));
                 } catch (NumberFormatException ex) {
                     MainActivity.this.amountTextView.setText("");
                     MainActivity.this.billAmount = 0.0;
